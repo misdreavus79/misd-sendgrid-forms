@@ -1,0 +1,24 @@
+{
+  "name": "misd-sendgrid-forms",
+  "version": "0.0.1",
+  "description": "Create contact forms using the power of SendGrid",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/misdreavus79/misd-sendgrid-forms.git"
+  },
+  "keywords": [
+    "contact",
+    "form",
+    "sendgrid"
+  ],
+  "author": "Eli Moreta-Feliz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/misdreavus79/misd-sendgrid-forms/issues"
+  },
+  "homepage": "https://github.com/misdreavus79/misd-sendgrid-forms#readme"
+}
