@@ -151,8 +151,12 @@ class Misd_Sendgrid_Forms {
 
 		$plugin_admin = new Misd_Sendgrid_Forms_Admin( $this->get_plugin_name(), $this->get_version() );
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'adminEnqueueStyles' );
+		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'adminEnqueueScripts' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'addPluginAdminMenu' );
+
+		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' );
+		$this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'addActionLinks' );
 
 	}
 

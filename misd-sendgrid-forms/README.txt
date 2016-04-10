@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Misd Sendgrid Forms ===
 Contributors: misdreavus79
 Donate link: http://misd.info/sendgrid-forms
 Tags: contact forms, sendgrid
@@ -12,7 +12,9 @@ Misd Sendgrid Forms allows you to make custom contact forms for your WordPress s
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+# Make Contact Forms With Ease
+
+With Misd Sendgrid Forms, you are able to both create contact forms and use a method of Email delivery proven to work for all email providers. You can create signup forms, contact forms, feedback forms, and any other sort of form that requires comminication between you and your potential customers. Misd Sendgrid Forms sends you an email when a customer submits the form, and automatically sends the customer an email notifying them of their submission. You are then able to reply to the communication as needed.
 
 For backwards compatibility, if this section is missing, the full length of the short description will be used, and
 Markdown parsed.

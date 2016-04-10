@@ -27,9 +27,9 @@ class Misd_Sendgrid_Forms_Admin {
 	 *
 	 * @since    1.0.0
 	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
+	 * @var      string    $pluginName    The ID of this plugin.
 	 */
-	private $plugin_name;
+	private $pluginName;
 
 	/**
 	 * The version of this plugin.
@@ -44,12 +44,12 @@ class Misd_Sendgrid_Forms_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
+	 * @param      string    $pluginName       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct( $pluginName, $version ) {
 
-		$this->plugin_name = $plugin_name;
+		$this->pluginName = $pluginName;
 		$this->version = $version;
 
 	}
@@ -59,7 +59,7 @@ class Misd_Sendgrid_Forms_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
+	public function adminEnqueueStyles() {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -73,7 +73,7 @@ class Misd_Sendgrid_Forms_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/misd-sendgrid-forms-admin.css', array(), $this->version, 'all' );
+		wp_enqueue_style( $this->pluginName, plugin_dir_url( __FILE__ ) . 'css/misd-sendgrid-forms-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -82,7 +82,7 @@ class Misd_Sendgrid_Forms_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
+	public function adminEnqueueScripts() {
 
 		/**
 		 * This function is provided for demonstration purposes only.
@@ -96,8 +96,26 @@ class Misd_Sendgrid_Forms_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/misd-sendgrid-forms-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->pluginName, plugin_dir_url( __FILE__ ) . 'js/misd-sendgrid-forms-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 
+	public function addPluginAdminMenu(){
+		
+		//add option menu item in the settings menu
+		add_options_page('Misd Sendgrid Forms Options', 'Misd Forms', 'manage_options', $this->pluginName, array($this, 'displayPluginSetupPage'));
+	}
+
+	public function addActionLinks($links){
+
+		$customLinks = [
+		    '<a href="' . admin_url( 'options-general.php?page=' . $this->pluginName ) . '">' . __('Settings', $this->pluginName) . '</a>'
+		];
+
+		return array_merge($customLinks, $links);
+	}
+
+	public function displayPluginSetupPage(){
+		include_once 'partials/misd-sendgrid-forms-admin-display.php';
+	}
 }
