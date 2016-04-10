@@ -1,14 +1,14 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: http://tripleequalsdesign.com
-Tags: comments, spam
+Contributors: misdreavus79
+Donate link: http://misd.info/sendgrid-forms
+Tags: contact forms, sendgrid
 Requires at least: 3.0.1
 Tested up to: 3.4
 Stable tag: 4.3
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: Unlicendsed
+License URI: 
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Misd Sendgrid Forms allows you to make custom contact forms for your WordPress sites, while using the power of SendGrid to deliver your emails.
 
 == Description ==
 

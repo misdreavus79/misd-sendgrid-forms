@@ -15,7 +15,7 @@
  * @wordpress-plugin
  * Plugin Name:       Misd Sendgrid Forms
  * Plugin URI:        http://misd.info/sendgrid-forms
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Create contact forms using the power of SendGrid.
  * Version:           1.0.0
  * Author:            Eli Moreta-Feliz
  * Author URI:        http://tripleequalsdesign.com
