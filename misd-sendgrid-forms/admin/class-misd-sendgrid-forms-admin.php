@@ -118,4 +118,12 @@ class Misd_Sendgrid_Forms_Admin {
 	public function displayPluginSetupPage(){
 		include_once 'partials/misd-sendgrid-forms-admin-display.php';
 	}
+
+	public function validate($input){
+		$valid = [];
+
+		$valid['apikey'] = (isset($input['apikey']) && !empty($input['apikey']));
+
+		return $valid;
+	}
 }
