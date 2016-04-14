@@ -122,8 +122,13 @@ class Misd_Sendgrid_Forms_Admin {
 	public function sanitizeUserInput($input){
 		$valid = [];
 
-		$valid['apikey'] = (isset($input['apikey']) && !empty($input['apikey']));
-
+		if(isset($input['apikey']) && !empty($input['apikey'])){
+			$valid['apikey'] = sanitize_text_field($input['apikey']);
+		}
 		return $valid;
 	}
+
+	public function updateOptions() {
+	    register_setting($this->pluginName, $this->pluginName, array($this, 'sanitizeUserInput'));
+	 }
 }

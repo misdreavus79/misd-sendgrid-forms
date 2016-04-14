@@ -44,9 +44,9 @@ class Misd_Sendgrid_Forms {
 	 *
 	 * @since    1.0.0
 	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * @var      string    $pluginName    The string used to uniquely identify this plugin.
 	 */
-	protected $plugin_name;
+	protected $pluginName;
 
 	/**
 	 * The current version of the plugin.
@@ -68,7 +68,7 @@ class Misd_Sendgrid_Forms {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'misd-sendgrid-forms';
+		$this->pluginName = 'misd-sendgrid-forms';
 		$this->version = '1.0.0';
 
 		$this->load_dependencies();
@@ -149,13 +149,14 @@ class Misd_Sendgrid_Forms {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Misd_Sendgrid_Forms_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Misd_Sendgrid_Forms_Admin( $this->get_pluginName(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'adminEnqueueStyles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'adminEnqueueScripts' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'addPluginAdminMenu' );
+		$this->loader->add_action('admin_init', $plugin_admin, 'updateOptions');
 
-		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' );
+		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->pluginName . '.php' );
 		$this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'addActionLinks' );
 
 	}
@@ -169,7 +170,7 @@ class Misd_Sendgrid_Forms {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Misd_Sendgrid_Forms_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Misd_Sendgrid_Forms_Public( $this->get_pluginName(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
@@ -192,8 +193,8 @@ class Misd_Sendgrid_Forms {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name() {
-		return $this->plugin_name;
+	public function get_pluginName() {
+		return $this->pluginName;
 	}
 
 	/**
